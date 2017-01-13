@@ -81,6 +81,7 @@ class InfoGANTrainer(object):
                 discriminator_loss -= self.info_reg_coeff * disc_mi_est
                 generator_loss -= self.info_reg_coeff * disc_mi_est
 
+            # continuous
             if len(self.model.reg_cont_latent_dist.dists) > 0:
                 cont_reg_z = self.model.cont_reg_z(reg_z)
                 cont_reg_dist_info = self.model.cont_reg_dist_info(fake_reg_z_dist_info)
