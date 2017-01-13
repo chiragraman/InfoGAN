@@ -15,7 +15,7 @@ class RegularizedGAN(object):
         """
         self.output_dist = output_dist
         self.latent_spec = latent_spec
-        self.latent_dist = Product([x for x, _ in latent_spec])
+        self.latent_dist = Product([x for x, _ in latent_spec])  # Distributions in latent_spec
         self.reg_latent_dist = Product([x for x, reg in latent_spec if reg])
         self.nonreg_latent_dist = Product([x for x, reg in latent_spec if not reg])
         self.batch_size = batch_size

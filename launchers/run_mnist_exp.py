@@ -1,5 +1,7 @@
 from __future__ import print_function
 from __future__ import absolute_import
+import sys
+sys.path.append('..')
 from infogan.misc.distributions import Uniform, Categorical, Gaussian, MeanBernoulli
 
 import tensorflow as tf
