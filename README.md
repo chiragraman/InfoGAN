@@ -1,8 +1,16 @@
-# InfoGAN
+# Multicomp Hackathon January 2017 - GAN and InfoGAN
+
+This repository contains code for experiments carried out for the CMU Multicomp Hackathon, intended to be an excercise in 
+exploring new topics of interest. This project involves an exploratory study of Generative Adversarial Networks, and the 
+variation InfoGAN.
+
+## GAN
+
+## InfoGAN
 
 Code for reproducing key results in the paper [InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets](https://arxiv.org/abs/1606.03657) by Xi Chen, Yan Duan, Rein Houthooft, John Schulman, Ilya Sutskever, Pieter Abbeel.
 
-## Dependencies
+### Dependencies
 
 Install tensorflow following the instructions from the [tensorflow repository](https://github.com/tensorflow/tensorflow).
 We recommend installing all the dependencies in a separate virtual environment.
@@ -17,7 +25,7 @@ The easiest way to install all dependencies is running the following command:
 
 The code has been tested with tensorflow version 0.12.1 and prettytensor version 0.6.2, as mentioned in the file `requirements.txt`.
 
-## Running in Docker
+### Running in Docker
 
 ```bash
 $ git clone git@github.com:openai/InfoGAN.git
@@ -26,7 +34,7 @@ root@X:/InfoGAN# pip install -r requirements.txt
 root@X:/InfoGAN# python launchers/run_mnist_exp.py
 ```
 
-## Running Experiment
+### Running Experiment
 
 We provide the source code to run the MNIST example:
 
