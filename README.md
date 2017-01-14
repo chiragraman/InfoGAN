@@ -6,6 +6,16 @@ variation InfoGAN.
 
 ## GAN
 
+Code for reproducing key results in the paper [Generative Adversarial Nets](https://arxiv.org/pdf/1406.2661v1.pdf) by Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio.
+
+### Dependencies
+
+- Keras 1.2.0
+- [Theano](http://deeplearning.net/software/theano/)
+- [SciPy](http://www.scipy.org/install.html)
+- [pillow](https://github.com/python-pillow/Pillow)
+- (Optional) tqdm, matplotlib
+
 ## InfoGAN
 
 Code for reproducing key results in the paper [InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets](https://arxiv.org/abs/1606.03657) by Xi Chen, Yan Duan, Rein Houthooft, John Schulman, Ilya Sutskever, Pieter Abbeel.
