@@ -34,7 +34,7 @@ We provide the source code to run the MNIST example:
 PYTHONPATH='.' python launchers/run_mnist_exp.py
 ```
 
-For running using GPU's, use the following command:
+For executing on GPU's, use the following command:
 
 ```bash
 PYTHONPATH='.' CUDA_VISIBLE_DEVICES=<device number> python launchers/run_mnist_exp.py
