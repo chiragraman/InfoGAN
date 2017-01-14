@@ -45,17 +45,27 @@ class InfoGANTrainer(object):
         self.log_vars = []
 
     def init_opt(self):
+        # Specifies the input tensor placeholder for use in a feed operation
+        # downstream
         self.input_tensor = input_tensor = tf.placeholder(tf.float32, [self.batch_size, self.dataset.image_dim])
 
         with pt.defaults_scope(phase=pt.Phase.train):
+            # Noise samples
             z_var = self.model.latent_dist.sample_prior(self.batch_size)
+            # fake_x : G(z)
             fake_x, _ = self.model.generate(z_var)
+            # real_d : D(x)
             real_d, _, _, _ = self.model.discriminate(input_tensor)
+            # fake_d : D(G(z))
             fake_d, _, fake_reg_z_dist_info, _ = self.model.discriminate(fake_x)
 
             reg_z = self.model.reg_z(z_var)
 
             discriminator_loss = - tf.reduce_mean(tf.log(real_d + TINY) + tf.log(1. - fake_d + TINY))
+
+            # In practice, instead of minimising log(1 - D(G(z))), log D(G(z))
+            # is maximised. Refer to the original paper on Generative
+            # Adversarial Networks by Ian Goodfellow, et. al
             generator_loss = - tf.reduce_mean(tf.log(fake_d + TINY))
 
             self.log_vars.append(("discriminator_loss", discriminator_loss))
@@ -81,7 +91,7 @@ class InfoGANTrainer(object):
                 discriminator_loss -= self.info_reg_coeff * disc_mi_est
                 generator_loss -= self.info_reg_coeff * disc_mi_est
 
-            # continuous
+            # continuous:
             if len(self.model.reg_cont_latent_dist.dists) > 0:
                 cont_reg_z = self.model.cont_reg_z(reg_z)
                 cont_reg_dist_info = self.model.cont_reg_dist_info(fake_reg_z_dist_info)
