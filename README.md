@@ -4,12 +4,18 @@ Code for reproducing key results in the paper [InfoGAN: Interpretable Representa
 
 ## Dependencies
 
-This project currently requires the dev version of TensorFlow available on Github: https://github.com/tensorflow/tensorflow. As of the release, the latest commit is [79174a](https://github.com/tensorflow/tensorflow/commit/79174afa30046ecdc437b531812f2cb41a32695e).
+Install tensorflow following the instructions from the [tensorflow repository](https://github.com/tensorflow/tensorflow).
+We recommend installing all the dependencies in a separate virtual environment.
 
-In addition, please `pip install` the following packages:
+In addition, the following packages are required:
 - `prettytensor`
 - `progressbar`
 - `python-dateutil`
+
+The easiest way to install all dependencies is running the following command:
+`pip install -r requirements.txt`
+
+The code has been tested with tensorflow version 0.12.1 and prettytensor version 0.6.2, as mentioned in the file `requirements.txt`.
 
 ## Running in Docker
 
@@ -27,6 +33,14 @@ We provide the source code to run the MNIST example:
 ```bash
 PYTHONPATH='.' python launchers/run_mnist_exp.py
 ```
+
+For running using GPU's, use the following command:
+
+```bash
+PYTHONPATH='.' CUDA_VISIBLE_DEVICES=<device number> python launchers/run_mnist_exp.py
+```
+where `<device number>` refers to the GPU device to be used; for instance, a device number of 0 would pick the first GPU 
+registered.
 
 You can launch TensorBoard to view the generated images:
 
