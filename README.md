@@ -66,3 +66,9 @@ Code for reproducing key results in the paper [Generative Adversarial Nets](http
 - [pillow](https://github.com/python-pillow/Pillow)
 - (Optional) tqdm, matplotlib
 
+### Running Experiment
+
+```bash
+python mnist_gan.py
+```
+
